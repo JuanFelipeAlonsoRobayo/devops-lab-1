@@ -2,7 +2,7 @@
 
 Este documento presenta la solución desarrollada para el laboratorio, explicando el funcionamiento del contenedor, la estructura del pipeline, las evidencias de las pruebas realizadas y algunas propuestas de mejora para el flujo de trabajo.
 
----<>
+Link al repositorio del laboratorio: https://github.com/JuanFelipeAlonsoRobayo/devops-lab-1.git
 
 ## 1. Arquitectura de Contenedores y CI/CD
 
@@ -43,12 +43,13 @@ Muestra la ejecución exitosa de todas las etapas del flujo (`lint`, `test`, `bu
 ---
 
 ### ii. Pipeline manual para eliminar infraestructura
-Para no dejar recursos encendidos y prevenir costos no deseados en la cuenta de AWS, se ejecutó el flujo manual de limpieza correspondiente al script `destroy.sh`:
+Para no dejar recursos encendidos y prevenir costos no deseados en la cuenta de AWS, se creó un flujo de trabajo bajo demanda (`.github/workflows/cleanup.yml`) que utiliza el evento `workflow_dispatch`. Este invoca el script `destroy.sh` pasando el sufijo del estudiante para desaprovisionar todos los recursos:
 
 ![Pipeline de limpieza](../Imagenes/Evidencias/Evidencia-Cleanup.png)
-<!--[Ejecución limpieza](sin Imagen)-->
+![Ejecución limpieza](../Imagenes/Evidencias/Ejecución-pipelineCleanup.png)
 
 ---
+
 
 ## 3. Evidencia de la Petición HTTP a la IP Pública
 
